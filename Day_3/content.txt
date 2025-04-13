@@ -1,0 +1,94 @@
+### no assingment was given on this day ###
+
+
+
+teraform script....
+
+	teraform is a IaaC tool( infrastructure as a code)
+	whenever u want to create a cloud resources like ec2,subnet, loadbalancers,vpc,database servers,internet gate,etc .any resourses u want to create by automation or script we are using teraform
+	
+	what we want to do..
+	
+	step1. for install teraform on linux machine
+		we have to set teraform path in linux machine
+	step2. set the path
+	step3. configure the aws credentials from cli ( install aws cli)
+	
+	
+	
+	
+	
+	IAM in aws
+	
+	
+--------------------------------------------------
+when u write in terraform files we must use blocks..
+	->provider blocks means which we want to do automation..(aws,azure)
+	->resourse clock means what kind of resource we want to create like cloud.(vcp etc)
+	->you have to define the variable block or variable files..
+	->output.tf file: if you want to print output in console like public ip address private ip addres or vpc name or vpc id.
+	
+	
+	---------------------------
+	when you creating instance using terraform script make sure we need to pass 5 forms
+		1.amazon machine id
+		2.instance type
+		3.key pair name
+		4.storage
+		5.instance name
+---------------------------------------------
+
+ec2.tf
+			
+		provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "web" {
+    ami = "ami-02f624c08a83ca16f"
+    instance_type = "t2.micro"
+    key_name = "Nidhi-server"
+    tags = {
+      Name = "Swasthik"
+    }
+  
+}
+		
+commands:
+	terraform init : will intialise terraform backend with cloud covered api. it is going to generate licence key to authenticate api key,or it is going to download a terraform folder it contains licence key
+	terraform valida: to show errors
+	terraform plan: it will tell what exactly ur doing in the cloud
+	terraform apply: its goin to create a instance at aws
+	terraform destroy: will automatically delete all the resourse created
+	when u execute a command called a terraform plan command, it will create terraform.tf state file which contains current state of the infrastructure..if the hacker can hack this file he can get access.. thats why store at cloud
+
+whenever u are creating a vpc it should contain name and ip address range..
+tenency- costing
+	
+	-------------------------------------------------
+	docker is a containerisation tool which can create make portable applications to use resourses affectively to create platform independent applications we are going with the docker...
+	
+	docker is going to perform OS level virtualization technique.
+	
+	we are going to use docker to reduce the cost of the servers , to run the appplicationd wherever u want , we are using application called docker
+	
+	application will divide into the modules called micro services , each and every microservice will have a saperate docker files separate docker image, separate docker container
+	
+	every microservice application will deploy in container.
+	
+	
+	monoletic application: it is a single tier architecture which means web server ,application server database server we are combine together and we are deploying in a single server,
+	
+	issues with a monoletic: if any module goes down the whole thing goes down because it has tightly coupled nature..
+	
+	if one service goes down the entire dervice goes down ..thats why we use microservices..
+	
+	what is microservices..
+	
+	we will braek down the application to the independent services thast called loosely coupled application..
+	if one server goes down ,then only customer cannot acces that service..remaining services run ..
+	
+	there are some issues with the microservices..each microservice require single server thats why costing very high..
+	
+	to reduce the cost,to effectivedly use the resources,to create a platform independent applications,to create a portable application
+	---------------------------------------------
